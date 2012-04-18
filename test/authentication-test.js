@@ -25,37 +25,25 @@ vows.describe('node-clouddatabase/authentication').addBatch({
       assert.include(client.config.auth, 'apiKey');
 
       assert.isFunction(client.setAuth);
-//      assert.isFunction(client.getServer);
-//      assert.isFunction(client.getServers);
-//      assert.isFunction(client.createServer);
+      assert.isFunction(client.getInstance);
     },
-/*    "the getVersion() method": {
-      topic: function () {
-        client.getVersion(this.callback);
-      },
-      "should return the proper version": function (versions) {
-        assert.isArray(versions);
-        assert.isFalse(versions.length == 0);
-      }
-    },*/
     "with a valid username and api key": {
       topic: function () {
         client.setAuth(this.callback);
       },
-      "should respond with 204 and appropriate headers": function (err, res) {
-        assert.equal(res.statusCode, 204);
-        assert.isObject(res.headers);
-        assert.include(res.headers, 'x-server-management-url');
-        assert.include(res.headers, 'x-storage-url');
-        assert.include(res.headers, 'x-cdn-management-url');
-        assert.include(res.headers, 'x-auth-token');
+      "should respond with 200 and appropriate headers": function (err, res) {
+        assert.equal(res.statusCode, 200);
+        var resBody = JSON.parse(res.body);
+        assert.isObject(resBody);
       },
       "should update the config with appropriate urls": function (err, res) {
         var config = client.config;
-        assert.equal(res.headers['x-server-management-url'], config.serverUrl);
-        assert.equal(res.headers['x-storage-url'], config.storageUrl);
-        assert.equal(res.headers['x-cdn-management-url'], config.cdnUrl);
-        assert.equal(res.headers['x-auth-token'], config.authToken);
+        var resBody = JSON.parse(res.body);
+        assert.isObject(resBody);
+        //assert.equal(resBody.serviceCatalog.cloudFiles[0]., config.serverUrl);
+        //assert.equal(res.headers['x-storage-url'], config.storageUrl);
+        //assert.equal(res.headers['x-cdn-management-url'], config.cdnUrl);
+        //assert.equal(res.headers['x-auth-token'], config.authToken);
       }
     },
     "with an invalid username and api key": {
@@ -70,22 +58,8 @@ vows.describe('node-clouddatabase/authentication').addBatch({
         badClient.setAuth(this.callback);
       },
       "should respond with 401": function (err, res) {
-        assert.equal(res.statusCode, 401);
+        assert.equal(err, "Username or api key is invalid");
       }
     }
   }
-}).addBatch({
-/*  "The node-clouddatabase client": {
-    "the getLimits() method": {
-      topic: function () {
-        client.getLimits(this.callback);
-      },
-      "should return the proper limits": function (limits) {
-        assert.isNotNull(limits);
-        assert.include(limits, 'absolute');
-        assert.include(limits, 'rate');
-        assert.isArray(limits.rate);
-      }
-    }
-  }*/
 }).export(module);
