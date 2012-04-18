@@ -40,10 +40,6 @@ vows.describe('node-clouddatabase/authentication').addBatch({
         var config = client.config;
         var resBody = JSON.parse(res.body);
         assert.isObject(resBody);
-        //assert.equal(resBody.serviceCatalog.cloudFiles[0]., config.serverUrl);
-        //assert.equal(res.headers['x-storage-url'], config.storageUrl);
-        //assert.equal(res.headers['x-cdn-management-url'], config.cdnUrl);
-        //assert.equal(res.headers['x-auth-token'], config.authToken);
       }
     },
     "with an invalid username and api key": {
