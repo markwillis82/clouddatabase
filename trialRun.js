@@ -17,6 +17,11 @@ client.setAuth(function(err) {
 			var item = instances.pop();
 			if(item.status == "ACTIVE") {
 				processDB(item); // run all commands == shutdown
+			} else {
+				console.log("Wait for server finish");
+				item.setWait({ status: 'ACTIVE' }, 5000, function () {
+				    console.log("Should be active");
+				});
 			}
 		} else {
 			console.log("No Servers -- Start One");
