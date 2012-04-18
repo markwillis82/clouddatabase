@@ -158,5 +158,20 @@ function processDB(item) {
 		});
 */
 
+/*
+		console.log("Restart Instance");
+
+		item.restart(function(err) {
+			if(err) {
+				console.log("Error on restart: "+ err);
+			}
+			console.log("Waiting for restart");
+			item.setWait({ status: 'ACTIVE' }, 5000, function () {
+				console.log("Should be active");
+			});
+
+		});
+*/
+
 	});
 }
