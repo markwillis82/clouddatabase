@@ -1,5 +1,5 @@
-var clouddatabase = require('./lib/clouddatabase'),
-	helpers = require('./test/helpers');
+var clouddatabase = require('..//lib/clouddatabase'),
+	helpers = require('../test/helpers');
 
 var client = helpers.createClient();
 
