@@ -1,5 +1,5 @@
 var clouddatabase = require('./lib/clouddatabase'),
-    helpers = require('./test/helpers');
+	helpers = require('./test/helpers');
 
 var client = helpers.createClient();
 
@@ -20,7 +20,7 @@ client.setAuth(function(err) {
 			} else {
 				console.log("Wait for server finish");
 				item.setWait({ status: 'ACTIVE' }, 5000, function () {
-				    console.log("Should be active");
+					console.log("Should be active");
 				});
 			}
 		} else {
@@ -54,7 +54,7 @@ function processDB(item) {
 	console.log("Status: "+item.status);
 	item.getDetails(function(err, items /* not used */) { // got all instance details
 
-			console.log(item);
+//			console.log(item);
 
 /*
 		console.log("Delete Instance")
@@ -114,6 +114,35 @@ function processDB(item) {
 			}
 		});
 */
+
+/*		console.log("Resize Instance - Change Flavor");
+
+		item.resizeFlavor({flavorRef: 2}, function(err) {
+			if(err) {
+				console.log("Error on resize: "+ err);
+			}
+			console.log("Waiting for resize");
+			item.setWait({ status: 'ACTIVE' }, 5000, function () {
+				console.log("Should be active");
+			});
+
+		}); */
+
+
+
+		console.log("Resize Instance - Change Flavor");
+
+		item.resizeFlavor({flavorRef: 2}, function(err) {
+			if(err) {
+				console.log("Error on resize: "+ err);
+			}
+			console.log("Waiting for resize");
+			item.setWait({ status: 'ACTIVE' }, 5000, function () {
+				console.log("Should be active");
+			});
+
+		});
+
 
 	});
 }
