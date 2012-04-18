@@ -129,7 +129,7 @@ function processDB(item) {
 		}); */
 
 
-
+/*
 		console.log("Resize Instance - Change Flavor");
 
 		item.resizeFlavor({flavorRef: 2}, function(err) {
@@ -141,8 +141,22 @@ function processDB(item) {
 				console.log("Should be active");
 			});
 
-		});
+		}); */
 
+/*
+		console.log("Resize Instance - Volume");
+
+		item.resizeVolume({volume: { size: 3 } }, function(err) {
+			if(err) {
+				console.log("Error on volume resize: "+ err);
+			}
+			console.log("Waiting for resize");
+			item.setWait({ status: 'ACTIVE' }, 5000, function () {
+				console.log("Should be active");
+			});
+
+		});
+*/
 
 	});
 }
