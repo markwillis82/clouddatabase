@@ -173,5 +173,29 @@ function processDB(item) {
 		});
 */
 
+/*
+		console.log("Check Root User Enabled");
+
+		item.checkRootUser(function(err, body) {
+			if(err) {
+				console.log("Error on check root user: "+ err);
+			}
+			console.log(body);
+
+		});
+*/
+
+/*
+		console.log("Enable Root User");
+
+		item.enableRootUser(function(err, body) {
+			if(err) {
+				console.log("Error on enable root user: "+ err);
+			}
+			console.log(body);
+
+		});
+*/
+
 	});
 }
