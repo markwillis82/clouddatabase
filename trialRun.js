@@ -6,7 +6,7 @@ var client = helpers.createClient();
 
 console.log("Setup Auth");
 
-client.setAuth(function() {
+client.setAuth(function(err) {
 
 	console.log("Get List of Instances");
 	client.getInstances(/*true,*/function(err, instances) {
