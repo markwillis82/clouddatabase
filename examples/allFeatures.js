@@ -52,7 +52,10 @@ function processDB(item) {
 	console.log("ID: "+item.id);
 	console.log("Name: "+item.name);
 	console.log("Status: "+item.status);
+
 	item.getDetails(function(err, items /* not used */) { // got all instance details
+
+		console.log("Hostname: "+item.hostname);
 
 //			console.log(item);
 
@@ -94,18 +97,28 @@ function processDB(item) {
 		});
 
 /*		console.log("Add New User");
-		var options = [{
+		var options = [
+		{
 			name: "mark",
 			password: "mark",
 			database: "db1"
-		}];
+		},
+		{
+			name: "mark2",
+			password: "mark2",
+			databases: [ {
+				name: "db1"
+			}]
+		},
+
+		];
 
 		item.addUser(options, function(err) {
 			if(err) {
 				console.log("Error on add: "+ err);
 			}
-		});
-*/
+		});*/
+
 
 /*		console.log("Delete User");
 		item.deleteUser("mark", function(err) {
