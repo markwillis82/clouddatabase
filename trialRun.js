@@ -15,7 +15,6 @@ client.setAuth(function() {
 		});
 		if(instances.length) {
 			var item = instances.pop();
-			console.log(item);
 			if(item.status == "ACTIVE") {
 				processDB(item); // run all commands == shutdown
 			}
@@ -49,17 +48,67 @@ function processDB(item) {
 	console.log("Name: "+item.name);
 	console.log("Status: "+item.status);
 	item.getDetails(function(err, items /* not used */) { // got all instance details
-		/*
+
+			console.log(item);
+
+/*
 		console.log("Delete Instance")
 		item.deleteServer(function(err) { // delete the instace we just made
 			if(err) {
 				console.log("Error on delete: "+ err);
 			}
-		});*/
+		}); */
 
 		console.log("List Databases");
 		item.getDatabases(function(err, databases) {
-			console.log(databases)
-		})
+			console.log(databases);
+		});
+
+/*		console.log("Add New Database");
+		var options = [{
+			name: "NewDB2"
+		}];
+
+		item.addDatabase(options, function(err) {
+			if(err) {
+				console.log("Error on add: "+ err);
+			}
+		}); */
+
+/*		console.log("Delete Databases");
+		item.deleteDatabase("NewDB2", function(err) {
+			if(err) {
+				console.log("Error on delete: "+ err);
+			}
+		}); */
+
+
+		console.log("List Users");
+		item.getUsers(function(err, users) {
+			console.log(users);
+		});
+
+/*		console.log("Add New User");
+		var options = [{
+			name: "mark",
+			password: "mark",
+			database: "db1"
+		}];
+
+		item.addUser(options, function(err) {
+			if(err) {
+				console.log("Error on add: "+ err);
+			}
+		});
+*/
+
+/*		console.log("Delete User");
+		item.deleteUser("mark", function(err) {
+			if(err) {
+				console.log("Error on delete: "+ err);
+			}
+		});
+*/
+
 	});
 }
