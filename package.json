@@ -1,0 +1,21 @@
+{
+  "name": "clouddatabase",
+  "description": "A client implementation for Rackspace CloudDatabase in node.js",
+  "version": "0.0.1",
+  "author": "Mark Willis <mark.w@immat.co.uk>",
+  "repository": {
+    "type": "git",
+    "url": "http://markwillis82@github.com/markwillis82/rackspace-database.git"
+  },
+  "keywords": ["rackspace database", "clouddatabase"],
+  "dependencies": {
+    "pkginfo": "0.2.x",
+    "request": "2.9.x"
+  },
+  "devDependencies": {
+    "vows": "0.5.x"
+  },
+  "main": "./lib/clouddatabase",
+  "scripts": { "test": "vows test/*-test.js --spec" },
+  "engines": { "node": ">= 0.4" }
+}
