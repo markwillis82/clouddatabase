@@ -2,9 +2,23 @@
 
 Initial Project to open up the Rackspace DBaaS to Node.js through there API.
 
-Features to come:
-
-	Auth token Retrieval
-	Creation / management / deletion of instances
-
 Based upon https://github.com/nodejitsu/node-cloudservers as much of the api structure is the same
+
+### Installing clouddatabase
+<pre>
+  npm install clouddatabase
+</pre>
+
+
+### Getting Started
+Before we can do anything with clouddatabase, we have to create a client with valid credentials. Clouddatabase will authenticate for you automatically:
+<pre>
+  var clouddatabase = require('clouddatabase');
+  var config = {
+    auth : {
+      username: 'your-username',
+      apiKey: 'your-api-key'
+    }
+  };
+  var client = clouddatabase.createClient(config);
+</pre>
