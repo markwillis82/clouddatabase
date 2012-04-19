@@ -1,7 +1,7 @@
 {
   "name": "clouddatabase",
   "description": "A client implementation for Rackspace CloudDatabase in node.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Mark Willis <mark.w@immat.co.uk>",
   "repository": {
     "type": "git",
