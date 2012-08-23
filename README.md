@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/markwillis82/clouddatabase.png)](http://travis-ci.org/markwillis82/clouddatabase)
 # Rackspace Database as a Service Node.js Bindings
 
 Initial Project to open up the Rackspace DBaaS to Node.js through there API.
